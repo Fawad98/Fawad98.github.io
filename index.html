@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="./_ds/modernist-a97f1ccc-cf47-4cf9-a237-47f0fa00bf6f/styles.css">
+<script src="./_ds/modernist-a97f1ccc-cf47-4cf9-a237-47f0fa00bf6f/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  a { color: var(--color-text); text-decoration: none; }
+  a:hover { color: var(--color-accent-700); }
+</style>
+</helmet>
+<div style="min-width: 1080px; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body)">
+<nav style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; background: var(--color-bg); border-bottom: 2px solid var(--color-divider)">
+  <a href="#top" style="font-family: var(--font-heading); font-weight: 700; font-size: 16px; letter-spacing: 0.02em; text-transform: uppercase">Fawad — Data</a>
+  <div style="display: flex; align-items: center; gap: 28px">
+    <a href="#work" style="font-size: 15px; font-weight: 500">Work</a>
+    <a href="#about" style="font-size: 15px; font-weight: 500">About</a>
+    <a href="#contact" style="font-size: 15px; font-weight: 500">Contact</a>
+    <a href="uploads/MFawad_DE.pdf" download="MFawad_DE.pdf" class="btn btn-primary">Resume ↓</a>
+  </div>
+</nav>
+
+<header id="top" data-screen-label="Hero" style="border-bottom: 2px solid var(--color-divider)">
+  <div style="display: grid; grid-template-columns: 1fr 320px; gap: 64px; align-items: center; max-width: 1160px; margin: 0 auto; padding: 88px 48px">
+    <div>
+      <div style="font-size: 14px; font-weight: 600; color: var(--color-accent-700); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 20px">Muhammad Fawad — Data Engineer</div>
+      <h1 style="font-family: var(--font-heading); font-size: 56px; font-weight: 700; line-height: 1.05; margin: 0 0 24px; letter-spacing: -0.01em">I build data platforms that turn raw events into decisions.</h1>
+      <p style="font-size: 19px; line-height: 1.6; color: var(--color-neutral-700); margin: 0 0 36px; max-width: 580px; text-wrap: pretty">6 years across ETL pipelines, BI dashboards, and large-scale data transformation. Currently building end-to-end lakehouse platforms on Azure, AWS, and GCP — explained below, with the code one click away.</p>
+      <div style="display: flex; gap: 12px">
+        <a href="#work" class="btn btn-primary">See the work →</a>
+        <a href="#contact" class="btn btn-secondary">Get in touch</a>
+      </div>
+    </div>
+    <sc-if value="{{ showPhoto }}" hint-placeholder-val="{{ true }}">
+      <div class="grayscale" style="width: 320px; height: 380px; justify-self: end">
+        <image-slot id="profile" shape="rect" placeholder="Drop your photo here"></image-slot>
+      </div>
+    </sc-if>
+  </div>
+</header>
+
+<section id="work" data-screen-label="Featured project" style="border-bottom: 2px solid var(--color-divider)">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 72px 48px 80px">
+    <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-700); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px">Featured project · Case study</div>
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 8px">
+      <h2 style="font-family: var(--font-heading); font-size: 40px; font-weight: 700; margin: 0; letter-spacing: -0.01em">Azure E-Commerce Lakehouse</h2>
+      <span class="tag tag-accent">Live on GitHub</span>
+    </div>
+    <p style="font-size: 18px; line-height: 1.6; color: var(--color-neutral-700); max-width: 780px; margin: 0 0 40px; text-wrap: pretty">A production-style data platform for an e-commerce business: streaming clickstream and batch order data land in a Delta lakehouse, get transformed with PySpark, and surface in Power BI — all provisioned as code and deployed through CI/CD.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 2px solid var(--color-divider); margin-bottom: 40px">
+      <div style="padding: 26px 28px; border-right: 2px solid var(--color-divider)">
+        <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px">The problem</div>
+        <p style="font-size: 15.5px; line-height: 1.65; color: var(--color-neutral-800); margin: 0; text-wrap: pretty">E-commerce data arrives two ways at once — a live stream of clickstream events and nightly batches of orders from an operational SQL database. Analytics teams need both, joined, historized, and queryable — without paying for an always-on warehouse.</p>
+      </div>
+      <div style="padding: 26px 28px">
+        <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px">The solution</div>
+        <p style="font-size: 15.5px; line-height: 1.65; color: var(--color-neutral-800); margin: 0; text-wrap: pretty">A medallion-architecture Delta lakehouse on ADLS Gen2: Event Hubs ingests the stream, Azure SQL feeds the batch path, Databricks handles PySpark transforms with SCD Type 2 history, and Synapse Serverless serves Power BI — pay-per-query, no warehouse to babysit.</p>
+      </div>
+    </div>
+
+    <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px">Architecture</div>
+    <div style="border: 2px solid var(--color-divider); background: #fff; padding: 20px; margin-bottom: 40px">
+      <img src="uploads/architecture.png" alt="Azure e-commerce lakehouse architecture: streaming path (Python event simulator, Event Hubs, Databricks Structured Streaming) and batch path (Azure SQL, Data Factory) into an ADLS Gen2 Delta Lake with bronze, silver, gold layers, served via Synapse Serverless to Power BI, with Key Vault, Monitor, Terraform, and GitHub Actions as platform" style="display: block; width: 100%; height: auto">
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 2px solid var(--color-divider); margin-bottom: 40px">
+      <div style="padding: 22px 24px; border-right: 2px solid var(--color-divider)">
+        <div style="font-size: 15px; font-weight: 700; margin-bottom: 8px">Streaming + batch in one platform</div>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--color-neutral-700); margin: 0">Real-time clickstream through Event Hubs alongside nightly batch loads from Azure SQL — unified in the same Delta tables.</p>
+      </div>
+      <div style="padding: 22px 24px; border-right: 2px solid var(--color-divider)">
+        <div style="font-size: 15px; font-weight: 700; margin-bottom: 8px">SCD Type 2 history tracking</div>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--color-neutral-700); margin: 0">Dimension changes are versioned, not overwritten — analysts can query customer and product state as of any date.</p>
+      </div>
+      <div style="padding: 22px 24px">
+        <div style="font-size: 15px; font-weight: 700; margin-bottom: 8px">Tested, versioned, automated</div>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--color-neutral-700); margin: 0">A test suite guards the transforms, Terraform pins the infrastructure, and GitHub Actions ships changes safely.</p>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: start">
+      <div style="border: 2px solid var(--color-divider)">
+        <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 22px; border-bottom: 2px solid var(--color-divider)">Inside the repo</div>
+        <div style="display: flex; flex-direction: column">
+          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
+            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">notebooks/</span>
+            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Databricks PySpark transforms — bronze to gold, SCD2 merge logic</span>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
+            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">infra/</span>
+            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Terraform modules for every Azure resource</span>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
+            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">pipeline/</span>
+            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Ingestion pipeline definitions — stream and batch paths</span>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
+            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">sql/</span>
+            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Synapse Serverless views over the gold layer</span>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
+            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">data_generator/</span>
+            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Synthetic clickstream + order data for reproducible demos</span>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 12px 22px">
+            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">tests/</span>
+            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Automated checks on transform logic, run in CI</span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 24px">
+        <div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px">Stack</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span class="tag tag-outline">Azure Event Hubs</span>
+            <span class="tag tag-outline">ADLS Gen2</span>
+            <span class="tag tag-outline">Delta Lake</span>
+            <span class="tag tag-outline">Databricks</span>
+            <span class="tag tag-outline">PySpark</span>
+            <span class="tag tag-outline">Azure SQL</span>
+            <span class="tag tag-outline">Data Factory</span>
+            <span class="tag tag-outline">Synapse Serverless</span>
+            <span class="tag tag-outline">Power BI</span>
+            <span class="tag tag-outline">Terraform</span>
+            <span class="tag tag-outline">GitHub Actions</span>
+          </div>
+        </div>
+        <a href="https://github.com/Fawad98/azure-ecommerce-lakehouse" target="_blank" rel="noopener" class="btn btn-primary btn-block">View the code on GitHub →</a>
+        <div style="font-size: 13px; color: var(--color-neutral-600); margin-top: -12px">Everything above is explained here — GitHub is just for the code.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<sc-if value="{{ showRoadmap }}" hint-placeholder-val="{{ true }}">
+<section data-screen-label="More projects" style="border-bottom: 2px solid var(--color-divider)">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 56px 48px 64px">
+    <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-700); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px">More projects</div>
+    <h2 style="font-family: var(--font-heading); font-size: 30px; font-weight: 700; margin: 0 0 8px">Beyond the featured build</h2>
+    <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 24px">Click a tile to see the case study.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+        <div onClick="{{ p.select }}" style="position: relative; border: 2px solid var(--color-divider); background: #fff; padding: 22px 24px 20px; cursor: pointer; display: flex; flex-direction: column; gap: 10px" style-hover="border-color: var(--color-accent)">
+          <sc-if value="{{ p.isSel }}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--color-accent)"></div>
+          </sc-if>
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+            <div style="font-size: 16.5px; font-weight: 700; line-height: 1.25">{{ p.title }}</div>
+            <span class="tag {{ p.tagClass }}" style="flex-shrink: 0">{{ p.status }}</span>
+          </div>
+          <p style="font-size: 13.5px; line-height: 1.55; color: var(--color-neutral-700); margin: 0; flex: 1">{{ p.desc }}</p>
+          <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-700)">{{ p.cta }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ hasSel }}" hint-placeholder-val="{{ false }}">
+      <div style="border: 2px solid var(--color-text); background: #fff">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 20px 28px; border-bottom: 2px solid var(--color-divider)">
+          <div style="display: flex; align-items: baseline; gap: 14px">
+            <h3 style="font-family: var(--font-heading); font-size: 24px; font-weight: 700; margin: 0">{{ selTitle }}</h3>
+            <span class="tag {{ selTagClass }}">{{ selStatus }}</span>
+          </div>
+          <button onClick="{{ closeSel }}" class="btn btn-ghost" style="cursor: pointer">Close ✕</button>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; padding: 26px 28px">
+          <div>
+            <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px">The story</div>
+            <p style="font-size: 15px; line-height: 1.65; color: var(--color-neutral-800); margin: 0 0 20px; text-wrap: pretty">{{ selBody }}</p>
+            <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px">Highlights</div>
+            <div style="display: flex; flex-direction: column">
+              <sc-for list="{{ selHighlights }}" as="h" hint-placeholder-count="3">
+                <div style="display: flex; gap: 10px; padding: 8px 0; border-top: 1px solid var(--color-neutral-300); font-size: 14px; line-height: 1.55; color: var(--color-neutral-800)">
+                  <span style="color: var(--color-accent-700); font-weight: 700">—</span>
+                  <span>{{ h }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px">
+            <div>
+              <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px">Stack</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px">
+                <sc-for list="{{ selStack }}" as="s" hint-placeholder-count="5">
+                  <span class="tag tag-outline">{{ s }}</span>
+                </sc-for>
+              </div>
+            </div>
+            <sc-if value="{{ selHasRepo }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ selRepo }}" target="_blank" rel="noopener" class="btn btn-primary btn-block">View the code on GitHub →</a>
+            </sc-if>
+            <sc-if value="{{ selNoRepo }}" hint-placeholder-val="{{ false }}">
+              <div style="border: 1px solid var(--color-neutral-400); padding: 12px 16px; font-size: 13.5px; color: var(--color-neutral-700)">{{ selRepoNote }}</div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</section>
+</sc-if>
+
+<section id="about" data-screen-label="About" style="border-bottom: 2px solid var(--color-divider)">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 64px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px">
+    <div>
+      <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-700); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px">About</div>
+      <h2 style="font-family: var(--font-heading); font-size: 30px; font-weight: 700; margin: 0 0 20px">From deep learning models to production pipelines.</h2>
+      <p style="font-size: 16px; line-height: 1.7; color: var(--color-neutral-700); margin: 0 0 16px; text-wrap: pretty">I started in software engineering, moved through deep learning research at university, and found my home in data engineering — the layer where data science, BI, and machine learning actually meet the business.</p>
+      <p style="font-size: 16px; line-height: 1.7; color: var(--color-neutral-700); margin: 0; text-wrap: pretty">Over 6 years I've built and optimized ETL pipelines, shipped BI dashboards teams rely on daily, and led complex data transformation projects end to end.</p>
+    </div>
+    <div>
+      <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-700); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px">Toolbox</div>
+      <div style="display: flex; flex-direction: column">
+        <div style="display: flex; gap: 16px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--color-neutral-300)">
+          <span style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); text-transform: uppercase; letter-spacing: 0.1em; width: 110px; flex-shrink: 0">Languages</span>
+          <span style="font-size: 15px">Python · SQL · PySpark · PowerShell</span>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--color-neutral-300)">
+          <span style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); text-transform: uppercase; letter-spacing: 0.1em; width: 110px; flex-shrink: 0">Platforms</span>
+          <span style="font-size: 15px">Azure · Databricks · Delta Lake · Synapse · Event Hubs</span>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--color-neutral-300)">
+          <span style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); text-transform: uppercase; letter-spacing: 0.1em; width: 110px; flex-shrink: 0">Analytics</span>
+          <span style="font-size: 15px">Power BI · data modeling · dashboard design</span>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--color-neutral-300); border-bottom: 1px solid var(--color-neutral-300)">
+          <span style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); text-transform: uppercase; letter-spacing: 0.1em; width: 110px; flex-shrink: 0">DevOps</span>
+          <span style="font-size: 15px">Terraform · GitHub Actions · CI/CD · testing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" data-screen-label="Contact" style="background: var(--color-accent); color: #fff">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 64px 48px 48px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.85">Contact</div>
+    <h2 style="font-family: var(--font-heading); font-size: 44px; font-weight: 700; margin: 0 0 14px; letter-spacing: -0.01em">Let's talk data.</h2>
+    <p style="font-size: 16px; line-height: 1.6; max-width: 520px; margin: 0 0 32px; opacity: 0.92; text-wrap: pretty">Open to data engineering roles and freelance data projects. The fastest way to reach me is email or LinkedIn.</p>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px">
+      <a href="mailto:Fawadnadeem54@gmail.com" style="display: inline-block; font-size: 15px; font-weight: 600; color: var(--color-accent-700); background: #fff; padding: 12px 22px" style-hover="background: var(--color-accent-100); color: var(--color-accent-800)">Email me</a>
+      <a href="https://www.linkedin.com/in/muhammadfawad98/" target="_blank" rel="noopener" style="display: inline-block; font-size: 15px; font-weight: 600; color: #fff; border: 2px solid rgba(255,255,255,0.7); padding: 10px 22px" style-hover="border-color: #fff; color: #fff">LinkedIn</a>
+      <a href="https://wa.me/923422364158" target="_blank" rel="noopener" style="display: inline-block; font-size: 15px; font-weight: 600; color: #fff; border: 2px solid rgba(255,255,255,0.7); padding: 10px 22px" style-hover="border-color: #fff; color: #fff">WhatsApp</a>
+      <a href="tel:+923422364158" style="display: inline-block; font-size: 15px; font-weight: 600; color: #fff; border: 2px solid rgba(255,255,255,0.7); padding: 10px 22px" style-hover="border-color: #fff; color: #fff">Call</a>
+    </div>
+    <div style="font-size: 13px; border-top: 1px solid rgba(255,255,255,0.4); padding-top: 20px; opacity: 0.9">Muhammad Fawad · Data Engineer · <a href="https://github.com/Fawad98" target="_blank" rel="noopener" style="color: #fff; text-decoration: underline" style-hover="color: #fff">github.com/Fawad98</a></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1280}, &quot;showPhoto&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sections&quot;}, &quot;showRoadmap&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sections&quot;}}">
+class Component extends DCLogic {
+  state = { sel: null };
+  static PROJECTS = [
+    { id: 'aws', title: 'AWS E-Commerce Lakehouse', status: 'Building', tagClass: 'tag-accent', desc: 'The same streaming + batch lakehouse rebuilt on AWS-native services.',
+      body: 'The Azure platform proved the architecture; this build proves it is portable. The same e-commerce workload — streaming clickstream plus batch orders — rebuilt with Kinesis for ingestion, S3 as the lake, Glue for transforms, and Athena for serverless serving.',
+      highlights: ['Identical medallion design, different cloud — a direct service-by-service comparison', 'Kinesis Data Streams replaces Event Hubs; Glue jobs replace Databricks notebooks', 'Terraform modules reused with an AWS provider — most of the IaC carries over'],
+      stack: ['Kinesis', 'S3', 'AWS Glue', 'Athena', 'Terraform', 'GitHub Actions'], repo: null, repoNote: 'In development — the repo goes public when the pipeline runs end to end.' },
+    { id: 'gcp', title: 'GCP E-Commerce Lakehouse', status: 'Planned', tagClass: 'tag-neutral', desc: 'The third leg: the same medallion design on Google Cloud.',
+      body: 'Round three takes the same platform to Google Cloud: Pub/Sub for streaming ingestion, Cloud Storage as the lake, Dataproc for Spark transforms, and BigQuery as the serving layer. Same data, same tests, same CI/CD — only the services change.',
+      highlights: ['Completes the three-cloud comparison of one architecture', 'BigQuery replaces the serverless SQL layer', 'Same synthetic data generator drives all three builds'],
+      stack: ['Pub/Sub', 'Cloud Storage', 'Dataproc', 'BigQuery', 'Terraform'], repo: null, repoNote: 'Planned — starts after the AWS build ships.' },
+    { id: 'pbi', title: 'Power BI Dashboards', status: 'Portfolio', tagClass: 'tag-outline', desc: 'Business dashboards covering sales, operations, and finance.',
+      body: 'A collection of business intelligence work: star-schema data models, DAX measures, and report design for sales, operations, and finance audiences — built to be read at a glance, not decoded.',
+      highlights: ['Star-schema modeling and DAX measure design', 'Report layouts designed around the questions stakeholders actually ask', 'Row-level security and refresh scheduling in the service'],
+      stack: ['Power BI', 'DAX', 'Power Query', 'Data modeling'], repo: 'https://github.com/Fawad98/PowerBI_Projects', repoNote: '' },
+    { id: 'sql', title: 'SQL Projects', status: 'Portfolio', tagClass: 'tag-outline', desc: 'Analytical SQL casework on real datasets.',
+      body: 'Analytical SQL beyond SELECT *: window functions, complex multi-table joins, and query optimization against realistic datasets — the kind of SQL that powers the silver and gold layers of a lakehouse.',
+      highlights: ['Window functions, CTEs, and set-based problem solving', 'Query tuning: execution plans, indexing, sargability', 'Real datasets, reproducible case write-ups'],
+      stack: ['SQL Server', 'T-SQL', 'Query optimization'], repo: 'https://github.com/Fawad98/SQL-Projects', repoNote: '' },
+    { id: 'pyda', title: 'Python Data Analysis', status: 'Portfolio', tagClass: 'tag-outline', desc: 'Exploratory analysis with pandas and NumPy on public datasets.',
+      body: 'Exploratory data analysis projects: cleaning messy public datasets, feature exploration with pandas and NumPy, and communicating findings with clear visualizations in Jupyter.',
+      highlights: ['Data cleaning and wrangling with pandas', 'Statistical exploration and visualization', 'Notebook write-ups that read like reports'],
+      stack: ['Python', 'pandas', 'NumPy', 'Matplotlib', 'Jupyter'], repo: 'https://github.com/Fawad98/Data-Analysis-using-Python', repoNote: '' },
+    { id: 'ds', title: 'Data Science Projects', status: 'Portfolio', tagClass: 'tag-outline', desc: 'Machine learning experiments, from university research onward.',
+      body: 'Machine learning work stretching back to deep learning research at university: classical models with scikit-learn and neural networks in PyTorch, with proper train/test discipline and honest evaluation.',
+      highlights: ['Deep learning models from university research', 'Classical ML pipelines with scikit-learn', 'Evaluation-first mindset: baselines before complexity'],
+      stack: ['scikit-learn', 'PyTorch', 'Python'], repo: 'https://github.com/Fawad98/Data-Science-Projects', repoNote: '' },
+  ];
+  renderVals() {
+    const sel = this.state.sel;
+    const list = Component.PROJECTS;
+    const cur = list.find(p => p.id === sel) || null;
+    return {
+      showPhoto: this.props.showPhoto ?? true,
+      showRoadmap: this.props.showRoadmap ?? true,
+      projects: list.map(p => ({
+        ...p,
+        isSel: p.id === sel,
+        cta: p.id === sel ? 'Close case study ↑' : 'View case study ↓',
+        select: () => this.setState({ sel: this.state.sel === p.id ? null : p.id }),
+      })),
+      hasSel: !!cur,
+      selTitle: cur ? cur.title : '',
+      selStatus: cur ? cur.status : '',
+      selTagClass: cur ? cur.tagClass : 'tag-neutral',
+      selBody: cur ? cur.body : '',
+      selHighlights: cur ? cur.highlights : [],
+      selStack: cur ? cur.stack : [],
+      selHasRepo: !!(cur && cur.repo),
+      selNoRepo: !!(cur && !cur.repo),
+      selRepo: cur && cur.repo ? cur.repo : '#',
+      selRepoNote: cur ? cur.repoNote : '',
+      closeSel: () => this.setState({ sel: null }),
+    };
+  }
+}
+</script>
+</body>
+</html>
