@@ -34,7 +34,7 @@
     <div>
       <div style="font-size: 14px; font-weight: 600; color: var(--color-accent-700); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 20px">Muhammad Fawad — Data Engineer</div>
       <h1 style="font-family: var(--font-heading); font-size: 56px; font-weight: 700; line-height: 1.05; margin: 0 0 24px; letter-spacing: -0.01em">I build data platforms that turn raw events into decisions.</h1>
-      <p style="font-size: 19px; line-height: 1.6; color: var(--color-neutral-700); margin: 0 0 36px; max-width: 580px; text-wrap: pretty">6 years across ETL pipelines, BI dashboards, and large-scale data transformation. Currently building end-to-end lakehouse platforms on Azure, AWS, and GCP — explained below, with the code one click away.</p>
+      <p style="font-size: 19px; line-height: 1.6; color: var(--color-neutral-700); margin: 0 0 36px; max-width: 580px; text-wrap: pretty">6 years across ETL pipelines, BI dashboards, and large-scale data transformation — now building cloud lakehouses and production multi-agent AI systems. Every project is explained here, with the code one click away.</p>
       <div style="display: flex; gap: 12px">
         <a href="#work" class="btn btn-primary">See the work →</a>
         <a href="#contact" class="btn btn-secondary">Get in touch</a>
@@ -48,94 +48,80 @@
   </div>
 </header>
 
-<section id="work" data-screen-label="Featured project" style="border-bottom: 2px solid var(--color-divider)">
+<section id="work" data-screen-label="Featured work" style="border-bottom: 2px solid var(--color-divider)">
   <div style="max-width: 1160px; margin: 0 auto; padding: 72px 48px 80px">
-    <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-700); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px">Featured project · Case study</div>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 8px">
-      <h2 style="font-family: var(--font-heading); font-size: 40px; font-weight: 700; margin: 0; letter-spacing: -0.01em">Azure E-Commerce Lakehouse</h2>
-      <span class="tag tag-accent">Live on GitHub</span>
+    <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-700); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px">Featured work</div>
+    <h2 style="font-family: var(--font-heading); font-size: 30px; font-weight: 700; margin: 0 0 8px">Flagship builds</h2>
+    <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 24px">Pick a project to open its full case study.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px">
+      <sc-for list="{{ featCards }}" as="c" hint-placeholder-count="2">
+        <div onClick="{{ c.select }}" style="position: relative; border: 2px solid {{ c.border }}; background: #fff; padding: 22px 24px; cursor: pointer; display: flex; flex-direction: column; gap: 8px" style-hover="border-color: var(--color-accent)">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: {{ c.bar }}"></div>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+            <div style="font-size: 18px; font-weight: 700; line-height: 1.2">{{ c.title }}</div>
+            <span class="tag tag-accent" style="flex-shrink: 0">{{ c.tag }}</span>
+          </div>
+          <div style="font-size: 14px; color: var(--color-neutral-700); line-height: 1.5">{{ c.tagline }}</div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-700); margin-top: 2px">{{ c.cta }}</div>
+        </div>
+      </sc-for>
     </div>
-    <p style="font-size: 18px; line-height: 1.6; color: var(--color-neutral-700); max-width: 780px; margin: 0 0 40px; text-wrap: pretty">A production-style data platform for an e-commerce business: streaming clickstream and batch order data land in a Delta lakehouse, get transformed with PySpark, and surface in Power BI — all provisioned as code and deployed through CI/CD.</p>
+
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 8px">
+      <h3 style="font-family: var(--font-heading); font-size: 40px; font-weight: 700; margin: 0; letter-spacing: -0.01em">{{ featTitle }}</h3>
+      <span class="tag tag-accent">{{ featTag }}</span>
+    </div>
+    <p style="font-size: 18px; line-height: 1.6; color: var(--color-neutral-700); max-width: 820px; margin: 0 0 40px; text-wrap: pretty">{{ featSummary }}</p>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 2px solid var(--color-divider); margin-bottom: 40px">
       <div style="padding: 26px 28px; border-right: 2px solid var(--color-divider)">
         <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px">The problem</div>
-        <p style="font-size: 15.5px; line-height: 1.65; color: var(--color-neutral-800); margin: 0; text-wrap: pretty">E-commerce data arrives two ways at once — a live stream of clickstream events and nightly batches of orders from an operational SQL database. Analytics teams need both, joined, historized, and queryable — without paying for an always-on warehouse.</p>
+        <p style="font-size: 15.5px; line-height: 1.65; color: var(--color-neutral-800); margin: 0; text-wrap: pretty">{{ featProblem }}</p>
       </div>
       <div style="padding: 26px 28px">
         <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px">The solution</div>
-        <p style="font-size: 15.5px; line-height: 1.65; color: var(--color-neutral-800); margin: 0; text-wrap: pretty">A medallion-architecture Delta lakehouse on ADLS Gen2: Event Hubs ingests the stream, Azure SQL feeds the batch path, Databricks handles PySpark transforms with SCD Type 2 history, and Synapse Serverless serves Power BI — pay-per-query, no warehouse to babysit.</p>
+        <p style="font-size: 15.5px; line-height: 1.65; color: var(--color-neutral-800); margin: 0; text-wrap: pretty">{{ featSolution }}</p>
       </div>
     </div>
 
     <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px">Architecture</div>
-    <div style="border: 2px solid var(--color-divider); background: #fff; padding: 20px; margin-bottom: 40px">
-      <img src="uploads/architecture.png" alt="Azure e-commerce lakehouse architecture: streaming path (Python event simulator, Event Hubs, Databricks Structured Streaming) and batch path (Azure SQL, Data Factory) into an ADLS Gen2 Delta Lake with bronze, silver, gold layers, served via Synapse Serverless to Power BI, with Key Vault, Monitor, Terraform, and GitHub Actions as platform" style="display: block; width: 100%; height: auto">
+    <div style="border: 2px solid var(--color-divider); background: #fff; padding: 24px; margin-bottom: 8px; display: flex; justify-content: center">
+      <div style="max-width: {{ featArchMax }}; width: 100%">{{ featArchImg }}</div>
     </div>
+    <div style="font-size: 13px; color: var(--color-neutral-600); margin-bottom: 40px">{{ featArchCaption }}</div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 2px solid var(--color-divider); margin-bottom: 40px">
-      <div style="padding: 22px 24px; border-right: 2px solid var(--color-divider)">
-        <div style="font-size: 15px; font-weight: 700; margin-bottom: 8px">Streaming + batch in one platform</div>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--color-neutral-700); margin: 0">Real-time clickstream through Event Hubs alongside nightly batch loads from Azure SQL — unified in the same Delta tables.</p>
-      </div>
-      <div style="padding: 22px 24px; border-right: 2px solid var(--color-divider)">
-        <div style="font-size: 15px; font-weight: 700; margin-bottom: 8px">SCD Type 2 history tracking</div>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--color-neutral-700); margin: 0">Dimension changes are versioned, not overwritten — analysts can query customer and product state as of any date.</p>
-      </div>
-      <div style="padding: 22px 24px">
-        <div style="font-size: 15px; font-weight: 700; margin-bottom: 8px">Tested, versioned, automated</div>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--color-neutral-700); margin: 0">A test suite guards the transforms, Terraform pins the infrastructure, and GitHub Actions ships changes safely.</p>
-      </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px">
+      <sc-for list="{{ featHighlights }}" as="h" hint-placeholder-count="3">
+        <div style="border: 2px solid var(--color-divider); padding: 22px 24px">
+          <div style="font-size: 15px; font-weight: 700; margin-bottom: 8px">{{ h.title }}</div>
+          <p style="font-size: 14px; line-height: 1.6; color: var(--color-neutral-700); margin: 0">{{ h.body }}</p>
+        </div>
+      </sc-for>
     </div>
 
     <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: start">
       <div style="border: 2px solid var(--color-divider)">
         <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 22px; border-bottom: 2px solid var(--color-divider)">Inside the repo</div>
         <div style="display: flex; flex-direction: column">
-          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
-            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">notebooks/</span>
-            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Databricks PySpark transforms — bronze to gold, SCD2 merge logic</span>
-          </div>
-          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
-            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">infra/</span>
-            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Terraform modules for every Azure resource</span>
-          </div>
-          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
-            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">pipeline/</span>
-            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Ingestion pipeline definitions — stream and batch paths</span>
-          </div>
-          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
-            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">sql/</span>
-            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Synapse Serverless views over the gold layer</span>
-          </div>
-          <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
-            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">data_generator/</span>
-            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Synthetic clickstream + order data for reproducible demos</span>
-          </div>
-          <div style="display: flex; gap: 16px; padding: 12px 22px">
-            <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0">tests/</span>
-            <span style="font-size: 13.5px; color: var(--color-neutral-700)">Automated checks on transform logic, run in CI</span>
-          </div>
+          <sc-for list="{{ featRepo }}" as="r" hint-placeholder-count="6">
+            <div style="display: flex; gap: 16px; padding: 12px 22px; border-bottom: 1px solid var(--color-neutral-300)">
+              <span style="font-family: monospace; font-size: 13px; font-weight: 600; width: 140px; flex-shrink: 0">{{ r.path }}</span>
+              <span style="font-size: 13.5px; color: var(--color-neutral-700)">{{ r.desc }}</span>
+            </div>
+          </sc-for>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 24px">
         <div>
           <div style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px">Stack</div>
           <div style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span class="tag tag-outline">Azure Event Hubs</span>
-            <span class="tag tag-outline">ADLS Gen2</span>
-            <span class="tag tag-outline">Delta Lake</span>
-            <span class="tag tag-outline">Databricks</span>
-            <span class="tag tag-outline">PySpark</span>
-            <span class="tag tag-outline">Azure SQL</span>
-            <span class="tag tag-outline">Data Factory</span>
-            <span class="tag tag-outline">Synapse Serverless</span>
-            <span class="tag tag-outline">Power BI</span>
-            <span class="tag tag-outline">Terraform</span>
-            <span class="tag tag-outline">GitHub Actions</span>
+            <sc-for list="{{ featStack }}" as="s" hint-placeholder-count="9">
+              <span class="tag tag-outline">{{ s }}</span>
+            </sc-for>
           </div>
         </div>
-        <a href="https://github.com/Fawad98/azure-ecommerce-lakehouse" target="_blank" rel="noopener" class="btn btn-primary btn-block">View the code on GitHub →</a>
+        <a href="{{ featRepoUrl }}" target="_blank" rel="noopener" class="btn btn-primary btn-block">View the code on GitHub →</a>
         <div style="font-size: 13px; color: var(--color-neutral-600); margin-top: -12px">Everything above is explained here — GitHub is just for the code.</div>
       </div>
     </div>
@@ -146,7 +132,7 @@
 <section data-screen-label="More projects" style="border-bottom: 2px solid var(--color-divider)">
   <div style="max-width: 1160px; margin: 0 auto; padding: 56px 48px 64px">
     <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-700); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px">More projects</div>
-    <h2 style="font-family: var(--font-heading); font-size: 30px; font-weight: 700; margin: 0 0 8px">Beyond the featured build</h2>
+    <h2 style="font-family: var(--font-heading); font-size: 30px; font-weight: 700; margin: 0 0 8px">Beyond the flagship builds</h2>
     <p style="font-size: 15px; color: var(--color-neutral-700); margin: 0 0 24px">Click a tile to see the case study.</p>
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
@@ -229,8 +215,8 @@
           <span style="font-size: 15px">Azure · Databricks · Delta Lake · Synapse · Event Hubs</span>
         </div>
         <div style="display: flex; gap: 16px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--color-neutral-300)">
-          <span style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); text-transform: uppercase; letter-spacing: 0.1em; width: 110px; flex-shrink: 0">Analytics</span>
-          <span style="font-size: 15px">Power BI · data modeling · dashboard design</span>
+          <span style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); text-transform: uppercase; letter-spacing: 0.1em; width: 110px; flex-shrink: 0">AI / Agents</span>
+          <span style="font-size: 15px">Microsoft Foundry · Agent Framework · RAG · MCP tools</span>
         </div>
         <div style="display: flex; gap: 16px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--color-neutral-300); border-bottom: 1px solid var(--color-neutral-300)">
           <span style="font-size: 12px; font-weight: 600; color: var(--color-neutral-600); text-transform: uppercase; letter-spacing: 0.1em; width: 110px; flex-shrink: 0">DevOps</span>
@@ -259,7 +245,59 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1280}, &quot;showPhoto&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sections&quot;}, &quot;showRoadmap&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sections&quot;}}">
 class Component extends DCLogic {
-  state = { sel: null };
+  state = { feat: 'azure', sel: null };
+  static FEATURED = [
+    {
+      id: 'azure', title: 'Azure E-Commerce Lakehouse', tag: 'Live on GitHub',
+      tagline: 'Streaming + batch Delta lakehouse on Azure, from ingestion to Power BI.',
+      summary: 'A production-style data platform for an e-commerce business: streaming clickstream and batch order data land in a Delta lakehouse, get transformed with PySpark, and surface in Power BI — all provisioned as code and deployed through CI/CD.',
+      problem: 'E-commerce data arrives two ways at once — a live stream of clickstream events and nightly batches of orders from an operational SQL database. Analytics teams need both, joined, historized, and queryable — without paying for an always-on warehouse.',
+      solution: 'A medallion-architecture Delta lakehouse on ADLS Gen2: Event Hubs ingests the stream, Azure SQL feeds the batch path, Databricks handles PySpark transforms with SCD Type 2 history, and Synapse Serverless serves Power BI — pay-per-query, no warehouse to babysit.',
+      arch: 'uploads/architecture.gif',
+      archAlt: 'Azure e-commerce lakehouse architecture: streaming path (Python event simulator, Event Hubs, Databricks Structured Streaming) and batch path (Azure SQL, Data Factory) into an ADLS Gen2 Delta Lake with bronze, silver, gold layers, served via Synapse Serverless to Power BI, with Key Vault, Monitor, Terraform, and GitHub Actions as platform',
+      archCaption: 'Sources → Ingest → Lakehouse → Serve → Analyze',
+      highlights: [
+        { title: 'Streaming + batch in one platform', body: 'Real-time clickstream through Event Hubs alongside nightly batch loads from Azure SQL — unified in the same Delta tables.' },
+        { title: 'SCD Type 2 history tracking', body: 'Dimension changes are versioned, not overwritten — analysts can query customer and product state as of any date.' },
+        { title: 'Tested, versioned, automated', body: 'A test suite guards the transforms, Terraform pins the infrastructure, and GitHub Actions ships changes safely.' },
+      ],
+      repo: [
+        { path: 'notebooks/', desc: 'Databricks PySpark transforms — bronze to gold, SCD2 merge logic' },
+        { path: 'infra/', desc: 'Terraform modules for every Azure resource' },
+        { path: 'pipeline/', desc: 'Ingestion pipeline definitions — stream and batch paths' },
+        { path: 'sql/', desc: 'Synapse Serverless views over the gold layer' },
+        { path: 'data_generator/', desc: 'Synthetic clickstream + order data for reproducible demos' },
+        { path: 'tests/', desc: 'Automated checks on transform logic, run in CI' },
+      ],
+      stack: ['Azure Event Hubs', 'ADLS Gen2', 'Delta Lake', 'Databricks', 'PySpark', 'Azure SQL', 'Data Factory', 'Synapse Serverless', 'Power BI', 'Terraform', 'GitHub Actions'],
+      repoUrl: 'https://github.com/Fawad98/azure-ecommerce-lakehouse',
+    },
+    {
+      id: 'zavaops', title: 'ZavaOps — Enterprise Operations Copilot', tag: 'Live on GitHub',
+      tagline: 'Multi-agent AI copilot on Microsoft Foundry — RAG, analytics, and real actions.',
+      summary: 'A production-grade multi-agent AI system on Microsoft Foundry. Employees ask an internal copilot about policies, sales data, or order operations in plain language — a supervisor agent classifies intent, routes to specialist agents, and synthesizes one answer with citations, analysis, or real actions taken.',
+      problem: 'Enterprise teams field the same three kinds of question — "what\'s the policy?", "what do the numbers say?", "can you action this?" — across disconnected docs, BI, and ops systems. A single mega-agent handles none of them well; its tool selection degrades as tools pile up.',
+      solution: 'A supervisor/orchestrator pattern on Foundry Agent Service. One supervisor routes to three specialists — Docs (hybrid RAG), Analytics (Code Interpreter over sales data), and Action (custom MCP tools for order ops) — then merges their results. Deployed as a hosted agent with its own identity, memory, eval gates, and full tracing.',
+      arch: 'uploads/ZavaOps-flow.gif',
+      archAlt: 'ZavaOps multi-agent architecture: Streamlit demo UI sends a prompt to a Supervisor agent hosted on Foundry Agent Service, which routes to Docs, Analytics, and Action specialist agents, backed by Azure AI Search, Code Interpreter, and a custom MCP server on Azure Functions; each specialist returns results up to the supervisor, which synthesizes one answer back to the UI. Cross-cutting: Entra agent identity, session and user memory, OpenTelemetry to Insights, eval gates in CI/CD.',
+      archCaption: 'The prompt flows down (blue); each specialist returns its result up to the supervisor (green), which synthesizes one answer and returns it to the UI.',
+      highlights: [
+        { title: 'Multi-agent orchestration', body: 'A supervisor classifies intent and routes to the right specialists — in sequence for complex requests — then synthesizes one coherent answer.' },
+        { title: 'Tools that take real actions', body: 'A custom MCP server on Azure Functions exposes order lookups, replacements, tickets, and emails — with confirmation gates before any mutation.' },
+        { title: 'Evaluated, traced, gated', body: 'A 60+ case eval suite (routing, RAG, red-team) blocks regressions in CI, with OpenTelemetry traces linking every score to its exact run.' },
+      ],
+      repo: [
+        { path: 'src/agents/', desc: 'Supervisor + Docs, Analytics, and Action specialist agents' },
+        { path: 'src/rag/', desc: 'Chunk → embed → index pipeline and hybrid + semantic retriever' },
+        { path: 'mcp_server/', desc: 'Azure Functions MCP server — the order-management tools' },
+        { path: 'evals/', desc: '60+ cases — routing, RAG QA, and red-team datasets + runner' },
+        { path: '.github/workflows/', desc: 'CI with the eval gate, plus azd deploy on merge to main' },
+        { path: 'demo/', desc: 'Streamlit chat UI against the hosted agent endpoint' },
+      ],
+      stack: ['Microsoft Foundry', 'Agent Framework', 'Hosted Agents', 'Azure AI Search', 'Custom MCP', 'Azure Functions', 'Code Interpreter', 'Entra Agent ID', 'OpenTelemetry', 'GitHub Actions', 'Bicep · azd', 'Streamlit', 'Python'],
+      repoUrl: 'https://github.com/Fawad98/enterprise-ops-copilot',
+    },
+  ];
   static PROJECTS = [
     { id: 'aws', title: 'AWS E-Commerce Lakehouse', status: 'Building', tagClass: 'tag-accent', desc: 'The same streaming + batch lakehouse rebuilt on AWS-native services.',
       body: 'The Azure platform proved the architecture; this build proves it is portable. The same e-commerce workload — streaming clickstream plus batch orders — rebuilt with Kinesis for ingestion, S3 as the lake, Glue for transforms, and Athena for serverless serving.',
@@ -287,12 +325,26 @@ class Component extends DCLogic {
       stack: ['scikit-learn', 'PyTorch', 'Python'], repo: 'https://github.com/Fawad98/Data-Science-Projects', repoNote: '' },
   ];
   renderVals() {
+    const feat = Component.FEATURED.find(f => f.id === this.state.feat) || Component.FEATURED[0];
     const sel = this.state.sel;
     const list = Component.PROJECTS;
     const cur = list.find(p => p.id === sel) || null;
     return {
       showPhoto: this.props.showPhoto ?? true,
       showRoadmap: this.props.showRoadmap ?? true,
+      featCards: Component.FEATURED.map(f => ({
+        title: f.title, tag: f.tag, tagline: f.tagline,
+        border: f.id === this.state.feat ? 'var(--color-text)' : 'var(--color-divider)',
+        bar: f.id === this.state.feat ? 'var(--color-accent)' : 'transparent',
+        cta: f.id === this.state.feat ? 'Showing below ↓' : 'Open case study →',
+        select: () => this.setState({ feat: f.id }),
+      })),
+      featTitle: feat.title, featTag: feat.tag, featSummary: feat.summary,
+      featProblem: feat.problem, featSolution: feat.solution,
+      featArchImg: React.createElement('img', { src: feat.arch, alt: feat.archAlt, style: { display: 'block', width: '100%', height: 'auto' } }),
+      featArchMax: feat.id === 'zavaops' ? '560px' : '100%',
+      featArchCaption: feat.archCaption,
+      featHighlights: feat.highlights, featRepo: feat.repo, featStack: feat.stack, featRepoUrl: feat.repoUrl,
       projects: list.map(p => ({
         ...p,
         isSel: p.id === sel,
